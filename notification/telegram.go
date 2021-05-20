@@ -1,7 +1,7 @@
 package notification
 
 import (
-	resty "go-pkg/httpclient"
+	resty "github.com/anerg2046/go-pkg/httpclient"
 )
 
 const apiURI = "https://tgapi.anerg.com/"
