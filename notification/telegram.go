@@ -1,7 +1,7 @@
 package notification
 
 import (
-	resty "trips-main/pkg/httpclient"
+	resty "go-pkg/httpclient"
 )
 
 const apiURI = "https://tgapi.anerg.com/"
