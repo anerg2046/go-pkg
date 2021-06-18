@@ -13,6 +13,7 @@ func MysqlConn(dsn string) *gorm.DB {
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger:                                   logger.Default.LogMode(logger.Error),
 		DisableForeignKeyConstraintWhenMigrating: true,
+		PrepareStmt:                              true,
 	})
 	if err != nil {
 		panic(err)
