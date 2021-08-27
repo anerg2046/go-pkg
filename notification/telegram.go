@@ -12,12 +12,13 @@ type Telegram struct {
 	ParseMode string
 }
 
-func (t *Telegram) SendMessage(text string) (*resty.Response, error) {
+func (t *Telegram) SendMessage(text string) ([]byte, error) {
 	uri := apiURI + t.BotToken + "/sendMessage"
 	body := map[string]string{
 		"chat_id":    t.ChatID,
 		"text":       text,
 		"parse_mode": t.ParseMode,
 	}
-	return resty.HttpClient.R().SetBody(body).Post(uri)
+	res, err := resty.HttpClient.R().SetBody(body).Post(uri)
+	return res.Body(), err
 }
